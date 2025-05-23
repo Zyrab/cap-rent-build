@@ -1,15 +1,17 @@
 :root {
-  --color-primary: hsl(210, 25%, 95%);
-  --color-pre-primary: hsl(210, 30%, 25%);
-  --color-secondary: hsl(0, 0%, 35%);
-  --color-accent: hsl(210, 70%, 55%);
+  --color-primary: hsl(210, 30%, 95%);
+  --color-pre-primary: hsl(210, 30%, 90%);
+  --color-secondary: hsl(210, 30%, 15%);
+  --color-pre-secondary: hsl(210, 30%, 35%);
+  --color-accent: hsl(210, 80%, 50%);
 }
 
 .dark {
-  --color-primary: hsl(210, 25%, 15%);
-  --color-pre-primary: hsl(210, 30%, 90%);
-  --color-secondary: hsl(0, 0%, 90%);
-  --color-accent: hsl(200, 90%, 50%);
+  --color-primary: hsl(210, 30%, 20%);
+  --color-pre-primary: hsl(210, 30%, 15%);
+  --color-secondary: hsl(210, 30%, 95%);
+  --color-secondary: hsl(210, 30%, 85%);
+  --color-accent: hsl(200, 100%, 75%);
 }
 
 /* Typography */
