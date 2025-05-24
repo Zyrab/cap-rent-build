@@ -4,28 +4,33 @@
   --color-secondary: hsl(210, 30%, 15%);
   --color-pre-secondary: hsl(210, 30%, 35%);
   --color-accent: hsl(210, 80%, 50%);
+
+  --font-babuka: "Babuka Geo", sans-serif;
+  --font-babuka-mt: "Babuka Geo Mt", arial sans-serif;
 }
 
 .dark {
   --color-primary: hsl(210, 30%, 20%);
   --color-pre-primary: hsl(210, 30%, 15%);
   --color-secondary: hsl(210, 30%, 95%);
-  --color-secondary: hsl(210, 30%, 85%);
+  --color-pre-secondary: hsl(210, 30%, 85%);
   --color-accent: hsl(200, 100%, 75%);
 }
 
-/* Typography */
 @font-face {
-  font-family: "Arial Geo";
-  src: url("../assets/fonts/arial-geo.ttf") format("truetype");
-  letter-spacing: 0;
+  font-family: "Babuka Geo";
+  src: url("../assets/fonts/babuka.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Sans Geo";
-  src: url("../assets/fonts/BPG-sans.ttf") format("truetype");
+  font-family: "Babuka Geo Mt";
+  src: url("../assets/fonts/babuka_mtavruli.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 /* Reset */
@@ -37,23 +42,33 @@
 
 /* Base */
 body {
-  font-family: "Arial Geo";
+  font-family: var(--font-babuka);
   background-color: var(--color-primary);
   color: var(--color-secondary);
   scrollbar-gutter: stable;
+  transition: all 0.25s ease-in-out;
 }
 
 h1 {
-  font-family: "Sans Geo";
-  color: var(--color-pre-primary);
+  font-family: var(--font-babuka-mt);
+  color: var(--color-secondary);
+  font-size: 2.5rem;
+  line-height: 100%;
 }
 
 h2 {
-  font-family: "Sans Geo";
-  color: var(--color-pre-primary);
-  font-size: 1.3rem;
+  font-family: var(--font-babuka-mt);
+  color: var(--color-secondary);
+  font-size: 1.75rem;
+  line-height: 100%;
 }
 
+h4 {
+  font-family: var(--font-babuka);
+  color: var(--color-pre-secondary);
+  line-height: 100%;
+  font-size: 1.125rem;
+}
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -74,55 +89,6 @@ h2 {
   ); /* Assuming --color-hover is defined somewhere */
 }
 
-/* Header */
-header {
-  background-color: var(--color-pre-primary);
-  padding: 1rem; /* Adjusted for mobile */
-}
-header div {
-  display: flex;
-  justify-content: space-between; /* Changed for mobile first */
-  align-items: center;
-  overflow: hidden;
-}
-header img {
-  width: 6rem; /* Adjusted for mobile */
-}
-
-/* Navigation */
-nav {
-  position: fixed; /* For off-canvas menu */
-  top: 0;
-  right: -100%; /* Hidden by default */
-  width: 70%; /* Adjust as needed for mobile */
-  height: 100%;
-  background-color: var(--color-pre-primary);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Adjusted for mobile */
-  padding: 3rem 2rem;
-  font-size: 1.2rem; /* Adjusted for mobile */
-  font-family: "Sans Geo";
-  transition: right 0.3s ease-in-out; /* Slide in/out */
-  z-index: 1000; /* Ensure it's on top */
-}
-
-a {
-  text-decoration: none;
-  color: var(--color-primary);
-  transition: color 0.25s ease-in-out;
-}
-
-a:hover {
-  color: var(--color-accent);
-}
-
-.current {
-  text-decoration: underline solid var(--color-secondary) 0.15em;
-  text-underline-offset: 0.1em;
-  font-feature-settings: "liga" 1, "dlig" 1;
-}
-
 /* Main */
 main {
   margin: auto;
@@ -133,7 +99,8 @@ main {
 section {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Adjusted for mobile */
+  gap: 2rem;
+  align-items: center;
 }
 .sub-title {
   color: var(--color-accent);
@@ -141,150 +108,30 @@ section {
   font-family: "Arial Geo";
 }
 
-/* Footer */
-footer {
-  background-color: var(--color-pre-primary);
-  color: var(--color-primary);
-}
-.footer-wrapper {
-  text-align: center;
-  display: flex;
-  flex-direction: column-reverse; /* Stack for mobile */
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem; /* Adjusted for mobile */
-  padding: 1.5rem 0;
-}
-footer img {
-  width: 8rem; /* Adjusted for mobile */
-}
-
-footer h3 {
-  font-size: 1rem;
-  padding: 0.2rem 0;
-  border-bottom: 1px solid var(--color-primary);
-}
-
-.footer-copy {
-  font-family: "Sans Geo";
-  font-size: 0.8rem;
-}
-
-.footer-contacts {
-  display: flex;
-  align-items: center;
-  justify-content: start; /* Center for mobile */
-  gap: 0.6rem;
-  font-family: "Sans Geo";
-  font-size: 0.8rem;
-  padding: 0.2rem 0;
-}
-
-footer svg {
-  width: 1.2rem; /* Adjusted for mobile */
-  fill: var(--color-accent);
-}
-
-/* Burger Menu */
-.burger-menu {
-  display: flex; /* Visible on mobile/tablet */
-  justify-content: center;
-  align-items: center;
-  z-index: 1001; /* Ensure it's above the nav when open */
-  cursor: pointer; /* Indicate it's clickable */
-}
-
-.checkbox-hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-}
-
-.hamburger {
-  width: 30px;
-  height: 30px;
-  position: relative;
-}
-
-.hamburger .bar {
-  width: 30px;
-  height: 4px;
-  background-color: var(
-    --color-primary
-  ); /* Changed color for visibility on dark header */
-  display: block;
-  border-radius: 4px;
-  transition: all 0.4s ease-in-out;
-  position: absolute;
-}
-
-.bar1 {
-  top: 0;
-}
-.bar2,
-.bar3 {
-  top: 13.5px;
-}
-.bar3 {
-  right: 0;
-} /* For your specific bar animation */
-.bar4 {
-  bottom: 0;
-}
-
-/* CSS to open the menu when the checkbox is checked */
-#menu-toggle:checked ~ #main-nav {
-  right: 0; /* Slide in the navigation from the right */
-  position: absolute;
-}
-
-/* CSS to animate the hamburger icon */
-#menu-toggle:checked + .burger-menu > .hamburger > .bar1 {
-  transform: rotate(45deg);
-  transform-origin: 5%;
-  width: 41px;
-}
-
-#menu-toggle:checked + .burger-menu > .hamburger > .bar2 {
-  transform: translateX(-40px);
-  background-color: transparent;
-}
-
-#menu-toggle:checked + .burger-menu > .hamburger > .bar3 {
-  transform: translateX(40px);
-  background-color: transparent;
-}
-
-#menu-toggle:checked + .burger-menu > .hamburger > .bar4 {
-  transform-origin: 5%;
-  transform: rotate(-45deg);
-  width: 41px;
-}
-
 .c-categorys {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   row-gap: 1rem;
-  column-gap: 2rem;
 }
 
 .c-a {
+  width: 49%;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  background-color: var(--color-pre-primary);
+  gap: 1rem;
 }
 
 .img-wrapper {
   position: relative;
-  width: 20rem;
-  height: 16rem;
+  width: 100%;
+  height: 10rem;
+  border-radius: 0.4rem;
   overflow: hidden;
 }
 
@@ -295,116 +142,34 @@ footer svg {
   object-fit: cover;
 }
 
-.hover-rect {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: var(--color-accent);
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-}
-
-.c-a:hover .hover-rect {
-  transform: translateY(0);
-}
-
 .c-p {
   color: var(--color-secondary);
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-family: var(--font-babuka-mt);
+  font-size: 1rem;
   text-align: center;
+  letter-spacing: 0.01ex;
+  font-weight: bold;
 }
 
 /* Tablet (Medium screens) */
 @media (min-width: 768px) {
-  header {
-    padding: 1.5rem 2rem;
-  }
-  header div,
-  .footer-wrapper {
-    width: 80%;
-    margin: auto;
-  }
-  .footer-wrapper {
-    flex-direction: row;
-  }
-  header img {
-    width: 7rem;
-  }
-
-  nav {
-    width: 50%; /* Slightly wider for tablet */
-  }
-
-  nav a {
-    font-size: 1.1rem;
-  }
-
   main {
-    width: 80%;
     padding: 3rem 1.5rem;
   }
-
-  .sub-title {
-    font-size: 1rem;
+  .c-a {
+    width: 32%;
+    padding: 0.8rem;
   }
-
-  footer img {
-    width: 9rem;
+  .img-wrapper {
+    height: 14rem;
   }
-
-  footer svg {
-    width: 1.4rem;
+  .c-p {
+    font-size: 1.5;
   }
 }
 
 /* Desktop (Large screens) */
 @media (min-width: 1024px) {
-  header {
-    padding: 1.5rem 0;
-  }
-  header div,
-  .footer-wrapper {
-    justify-content: space-between;
-    width: 60%;
-    margin: auto;
-  }
-  header img {
-    width: 8rem;
-  }
-
-  nav {
-    position: static; /* Remove fixed positioning */
-    width: auto; /* Revert width */
-    height: auto; /* Revert height */
-    background-color: transparent; /* Transparent background */
-    display: flex;
-    flex-direction: row; /* Back to row for desktop */
-    gap: 1rem;
-    padding: 0;
-    transition: none; /* No transition needed */
-  }
-
-  nav a {
-    color: var(--color-primary); /* Original color for desktop */
-    font-size: 1rem;
-  }
-
-  .burger-menu {
-    display: none; /* Hide burger menu on desktop */
-  }
-
-  .checkbox-hidden {
-    display: none; /* No need for the checkbox on desktop if burger is hidden */
-  }
-
-  /* Reset any checked styles for desktop if needed */
-  #menu-toggle:checked ~ #main-nav {
-    right: auto; /* Ensure nav is not affected by checked state on desktop */
-  }
-
   main {
     padding: 3rem 2rem;
     width: 60%;
@@ -412,15 +177,14 @@ footer svg {
   section {
     gap: 3rem;
   }
-  .sub-title {
-    font-size: 1rem;
+  .c-a {
+    border: 2px solid var(--color-pre-primary);
+    transition: background 0.25s ease-in-out;
   }
-
-  footer img {
-    width: 10rem;
+  .c-a:hover {
+    background-color: var(--color-primary);
   }
-
-  footer svg {
-    width: 1.5rem;
+  .c-p {
+    font-size: 1.2rem;
   }
 }
